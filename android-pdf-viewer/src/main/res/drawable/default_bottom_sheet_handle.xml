@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="4dp"
+    android:viewportWidth="40"
+    android:viewportHeight="4">
+
+    <!-- Rounded Rectangle Handle -->
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M2,0 h36 a2,2 0 0 1 2,2 v0 a2,2 0 0 1 -2,2 h-36 a2,2 0 0 1 -2,-2 v0 a2,2 0 0 1 2,-2 z"
+        android:strokeWidth="0" />
+</vector>

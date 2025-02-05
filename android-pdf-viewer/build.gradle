@@ -1,0 +1,82 @@
+plugins {
+    alias(libs.plugins.android.library)
+    id("maven-publish")
+}
+
+android {
+    namespace 'com.bellalhossainmondal.pdfviewer'
+    compileSdk 35
+
+    defaultConfig {
+        minSdk 21
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = "com.github.bellalhossainmondal"
+            artifactId = "android-pdf-viewer"
+            version = '1.0.0'
+
+            afterEvaluate {
+                from components.release
+            }
+
+            pom {
+                name.set("android-pdf-viewer")
+                description.set("Android view for displaying PDFs rendered with PdfiumAndroid")
+                url.set("https://github.com/bellalhossainmondal/android-pdf-viewer")
+                licenses {
+                    license {
+                        name.set("The Apache Software License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("bellalhossainmondal")
+                        name.set("Bellal Hossain Mondal")
+                        email.set("bellalmondalofficial@gmail.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:github.com/bellalhossainmondal/android-pdf-viewer.git")
+                    developerConnection.set("scm:git:ssh://github.com/bellalhossainmondal/android-pdf-viewer.git")
+                    url.set("https://github.com/bellalhossainmondal/android-pdf-viewer")
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    implementation("com.github.bellalhossainmondal:pdfium-android:1.0.0")
+}
