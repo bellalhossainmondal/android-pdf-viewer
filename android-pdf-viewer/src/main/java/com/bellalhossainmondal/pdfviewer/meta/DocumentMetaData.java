@@ -95,7 +95,7 @@ public class DocumentMetaData extends BottomSheetDialog {
 
         TextView modificationDateTextView = findViewById(R.id.modification_date);
         if (modificationDateTextView != null) {
-            modificationDateTextView.setText(documentMeta.getCreationDate());
+            modificationDateTextView.setText(documentMeta.getModDate());
         }
     }
 }
