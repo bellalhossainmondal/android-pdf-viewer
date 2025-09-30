@@ -16,7 +16,6 @@
 package com.bellalhossainmondal.pdfviewer;
 
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RectF;

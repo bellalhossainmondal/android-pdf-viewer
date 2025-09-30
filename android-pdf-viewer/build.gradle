@@ -5,13 +5,14 @@ plugins {
 
 android {
     namespace 'com.bellalhossainmondal.pdfviewer'
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
         minSdk 21
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        targetSdk 36
     }
 
     buildTypes {
@@ -31,6 +32,7 @@ android {
             withJavadocJar()
         }
     }
+    buildToolsVersion '36.0.0'
 }
 
 publishing {
@@ -38,7 +40,7 @@ publishing {
         release(MavenPublication) {
             groupId = "com.github.bellalhossainmondal"
             artifactId = "android-pdf-viewer"
-            version = '1.0.0'
+            version = '1.0.4'
 
             afterEvaluate {
                 from components.release
@@ -78,5 +80,5 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
-    implementation("com.github.bellalhossainmondal:pdfium-android:1.0.0")
+    implementation("com.github.bellalhossainmondal:pdfium-android:1.0.1")
 }
